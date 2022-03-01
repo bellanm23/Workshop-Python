@@ -1,67 +1,95 @@
-# Data Structures
+# BAB 5 Struktur Data
+## More on Lists
+Berikut adalah semua metode daftar objek:
 
-## 5.1 Membahas mengenai lebih lanjut tentang Daftar Lists
-Tipe data daftar *list* memiliki beberapa metode dari objek daftar *list* sebagai berikut:
+list. append(x)
+Tambahkan item ke akhir daftar. Setara dengan a[len(a):] = [x].
 
-1. **list.append(x)** -> menambahkan objek objek ke daftar *list*. setara dengan `a[len(a):] [x]`.
-2. **list.extend(*iterable*)** -> perpanjang daftar *list* dengan menambahkan semua item dari *iterable* Setara dengan `a[len(a):] = iterable`.
-3. **list.insert(i,x)** -> dimana akan memasukkan item pada posisi tertentu. Argumen pertama adalah indeks elemen sebelum memasukkan, jadi `a.insert(0, x)` dimasukkan di bagian depan daftar *list*, dan `a.insert(len(a), x) sama dengan a.append(x).
-4. **list.remove(x)** -> digunakan untuk menghapus item pertama dari daftar list yang nilainya sama dengan *x*. maka akan memunculkan `ValueError` jika tidak ada item seperti ini.
-5. **list.pop([i])** -> digunakan untuk menghapus item pada posisi yang diberikan dalam daftar, dan kembalikan. Jika tidak ada indeks yang ditentukan, maka `a.pop()` menghapus dan mengembalikan item terakhir dalam daftar.
-6. **list.clear()** -> digunakan untuk menghapus semua item dari daftar list. Sama dnegan `del a[:]`
-7. **list.index(x[,start[,end]])** -> untuk kembalikan indeks berbasis nol dalam daftar item pertama yang nilainya sama dengan *x*. Akan muncul `ValueError` jika tidak ada item seperti ini. 
-8. **list.count(x)** -> jumlah pengembalian berapa kali *x* muncul dalam daftar.
-9. **list.sort(*,key=Nona, reverse=False)** -> mengurutkan item daftar di tempat (argumen dapat digunakan untuk mengurutkan ubah sesuai *customization*)
-10. **list.reverse()** -> mengembalikan elemen daftar *list* di tempatnya.
-11. **list.copy()** -> mengembalikan salinan daftar list yang dangkal. Setara dengan `a[:]`
+list. extend(iterable))
+Perpanjang daftar dengan menambahkan semua item dari iterable. Setara dengan a[len(a):] = iterable.
 
-### 5.1.1. Menggunakan Daftar Lists sebagai Tumpukan stacks
+list. insert(i, x)
+Menyisipkan item pada posisi tertentu. Argumen pertama adalah indeks elemen yang sebelumnya untuk dimasukkan, sehingga a.insert(0, x) menyisipkan di bagian depan daftar, dan a.insert(len(a), x) setara dengan a.append(x).
 
-Metode daftar membuat sangat mudah untuk menggunakan daftar *lust* sebagai tumpukan *stack*. dimana elemen terakhir yang ditambahkan adalah elemen pertama yang akan diambil atau bisa kita sebut sebagai **last-in, first-out**. 
+list. remove(x)
+Hapus item pertama dari daftar yang nilainya sama dengan x. Ini menimbulkan ValueError jika tidak ada item seperti itu.
 
-- **append()** -> digunakan untuk menambahkan item ke atas tumpukan (stack).
-- **pop() tanpa indeks eksplisit** -> digunakan untuk mengambil item dari atas tumpukan. 
+list. pop([i])
+Hapus item pada posisi yang diberikan dalam daftar, dan kembalikan. Jika tidak ada indeks yang ditentukan, a.pop() akan menghapus dan mengembalikan item terakhir dalam daftar.
 
-### 5.1.2. Menggunakan Daftar Lists sebagai Antrian *Queues*
+list. clear()
+Hapus semua item dari daftar. Setara dengan del a[:].
 
-Memungkinkan untuk menggunakan daftar sebagai antria, dimana elemen pertama yang ditambahkan adalam elemen yang diambil yang kita sebut sebagai **first-in, first-out** namun, daftar kurang efisien untuk tujuan ini. 
+list. index(x[, mulai[, akhir]])
+Kembalikan indeks berbasis nol dalam daftar item pertama yang nilainya sama dengan x. Meningkatkan ValueError jika tidak ada item seperti itu.
+list. count(x)
+Kembalikan berapa kali x muncul dalam daftar.
 
-Untuk mengimplementasikan antrian, kita bisa menggunakan `collections.deque` yang dirancang utnuk menambahkan dan muncul dengan cepat dari kedua ujungnya.
+list. sort(*, key=None, reverse=False)
+Urutkan item daftar di tempat (argumen dapat digunakan untuk mengurutkan penyesuaian, lihat sorted() untuk penjelasannya).
 
-### 5.1.3. Daftar List Comprehensions
+list. reverse()
+Membalikkan elemen-elemen daftar yang ada.
 
-Daftar List Comprehensions menyediakan cara singkat untuk membuat daftar. Dalam daftar ini terdiri dari tanda kurung yang berisi ekspresi kemudian diikuti oleh klausa **for**, lalu nol atau lebih klausa **for** atau **if**.
+list. copy()
+Kembalikan salinan daftar yang dangkal. Setara dengan a[:].
 
-### 5.1.4 Pemahaman Daftar List Comprehensions Bersarang
+### Using Lists as Stacks
+Metode daftar membuatnya sangat mudah untuk menggunakan daftar sebagai tumpukan, di mana elemen terakhir yang ditambahkan adalah elemen pertama yang diambil ("last-in, first-out"). Untuk menambahkan item ke bagian atas tumpukan, gunakan append(). Untuk mengambil item dari bagian atas tumpukan, gunakan pop() tanpa indeks eksplisit. 
 
-Ekspresi awal dapat berupa ekspresi acak *arbitrary*, termasuk pemahaman daftar *list comprehension* lainnya. *listcomp* bersarang dievaluasi dalam konteks `for` yang mengikutinya.
+### Menggunakan Daftar sebagai Antrean
+ntuk menggunakan daftar sebagai antrian, di mana elemen pertama yang ditambahkan adalah elemen pertama yang diambil ("first-in, first-out"); namun, daftar tidak efisien untuk tujuan ini. Sementara embel-embel dan pops dari akhir daftar cepat, melakukan sisipan atau pops dari awal daftar lambat (karena semua elemen lain harus digeser oleh satu).
+Untuk menerapkan antrian, gunakan collections.deque yang dirancang untuk memiliki pelengkap dan pop cepat dari kedua ujungnya.
 
-## 5.2 Pernyataan *del*
+### List Comprehensions
+Pemahaman daftar menyediakan cara ringkas untuk membuat daftar. Aplikasi umum adalah membuat daftar baru di mana setiap elemen adalah hasil dari beberapa operasi yang diterapkan pada setiap anggota urutan lain atau dapat diederasi, atau untuk membuat subsequence dari elemen-elemen yang memenuhi kondisi tertentu.
+Pemahaman daftar terdiri dari tanda kurung yang berisi ekspresi diikuti oleh klausa for, kemudian nol atau lebih for atau if klausa. Hasilnya akan menjadi daftar baru yang dihasilkan dari mengevaluasi ekspresi dalam konteks for dan if klausa yang mengikutinya. 
 
-Pernyataan ini berbeda dengan metode `pop()` yang mengembalikan nilai. Tetapi metode ini juga dapat digunakan sebagai menghapus irisan dari daftar *list* atau menghapus seluruh daftar *list*. Selain itu juga dapat digunakan utnuk menghapus seluruh variable.
+### Nested List Comprehensions
+Ekspresi awal dalam pemahaman daftar dapat berupa ekspresi sewenang-wenang, termasuk pemahaman daftar lain. Pemahaman daftar berikut akan mengubah baris dan kolom.
 
-## 5.3 Tuples dan Urutan Sequences
 
-Ada 2 contoh tipe data *sequence* yaitu `list, tuple, rangr`. Karena Python merupakan bahasa pemrograman yang berkembang, maka tipe data urutan lainnya dapat ditambahkan. Ada juga tipe data urutan standar lain yaitu *tuple*. Walaupun *tuple* mungkin mirip dnegan daftar, *tuple* sering digunakan dalam situassi yang berbeda dan untuk tujuan yang berbeda. *Tuple* adalah **immutable**, dan biasanya berisi urutan elemen yang heterogen yang diakses melalu *unpacking* atau pengindeksan.
+## Pernyataan del
+cara untuk menghapus item dari daftar yang diberikan indeksnya alih-alih nilainya: pernyataan del. Ini berbeda dari metode pop() yang mengembalikan nilai. Pernyataan del juga dapat digunakan untuk menghapus irisan dari daftar atau menghapus seluruh daftar (yang kami lakukan sebelumnya dengan penetapan daftar kosong ke irisan). del juga dapat digunakan untuk menghapus seluruh variabel.
 
-## 5.4. Himpunan Set
 
-Python juga menyertakan tipe data untuk *sets*. Himpunan atau *Set* adalah koleksi yang tidak terurutkan tanpa elemen duplikat. 
+## Tuples dan Urutan
+aftar dan string memiliki banyak properti umum, seperti operasi pengindeksan dan mengiris. keduanya adalah dua contoh tipe data urutan (lihat Tipe Urutan - daftar, tuple, rentang). Karena Python adalah bahasa yang berkembang, tipe data urutan lainnya dapat ditambahkan. Ada juga tipe data urutan standar lainnya: tuple.
 
-kurung kurawal atau fungsi `set()` dapat digunakan untuk membuat himpunan. 
+Tuple terdiri dari sejumlah nilai yang dipisahkan oleh koma, pada tuple output selalu tertutup dalam tanda kurung, sehingga tuple bersarang ditafsirkan dengan benar; mereka mungkin masukan dengan atau tanpa tanda kurung di sekitarnya, meskipun seringkali tanda kurung diperlukan (jika tuple adalah bagian dari ekspresi yang lebih besar). Tidak mungkin untuk menetapkan ke item individu dari tuple, namun dimungkinkan untuk membuat tuple yang berisi objek yang dapat diubah, seperti daftar.
+Meskipun tuple mungkin tampak mirip dengan daftar, mereka sering digunakan dalam situasi yang berbeda dan untuk tujuan yang berbeda. Tuple tidak berubah, dan biasanya berisi urutan elemen heterogen yang diakses melalui pembongkaran (lihat nanti di bagian ini) atau pengindeksan (atau bahkan dengan atribut dalam kasus namedtuples). Daftar dapat diubah, dan elemennya biasanya homogen dan diakses dengan mengulangi daftar.
 
-## 5.5 Kamus Dictionaries
+Masalah khusus adalah pembangunan tuple yang berisi 0 atau 1 item: sintaks memiliki beberapa kebiasaan ekstra untuk mengakomodasi ini. Tuple kosong dibangun oleh sepasang tanda kurung kosong; tuple dengan satu item dibangun dengan mengikuti nilai dengan koma (tidak cukup untuk melampirkan nilai tunggal dalam tanda kurung). Jelek, tapi efektif. 
 
-Kamus dictionary terkadang ditemukan dalam bahasa lain sebagai **"assosiative memories"** atau **"assosiative array"**. Tidak seperti urutan *sequences*, yang diindeks oleh sejumlah angka, kamus *dictionary* diindeks oleh *keys*, yang dapat berupa jenis apa pun yang tidak dapat diubah *immutable type*, string dan angka sellau bisa menjadi kunci *key*. *Tuples* dapat digunakan sebagai kunci jika hanya berisi string, angka, atau *tuple*, jika sebuah tuple berisi objek yang bisa berubah baik secara langsung atau tidak maka tidak dapat digunakan sebagai kunci *key*. Untuk memeriksa apakah ada satu kunci dalam kamus, gunakan kata kunci `in`.
 
-## 5.6 Teknik Perulangan
+## Set
+Python juga menyertakan tipe data untuk set. Satu set adalah koleksi yang tidak diurutkan tanpa elemen duplikat. Penggunaan dasar termasuk pengujian keanggotaan dan menghilangkan entri duplikat. Mengatur objek juga mendukung operasi matematika seperti persatuan, persimpangan, perbedaan, dan perbedaan simetris.
 
-Pada saat mengulang kmaus *dictionaries*, kunci *key* dan nilai *value* terkait dapat diambil pada saat yang sama menggunakan metode `items()`. Ketika mengulang melalui urutan, indeks posisi dan nilai terkait dapat diambil pada saat yang sama dengan menggunakan fungsi `enumerate()`. Untuk mengulang urutan secara terbalik, pertama tentukan urutan dalam arah maju dan kemudian panggil Fungsi `reversed()`. Jika ingin mengulai sebuah urutan *sequence* dalam susunan yang diurutkan, gunkana fungsi `sort()` yang mengembalikan daftar terurut baru dnegan membiarkan sumber tidak diubah.
+Kawat gigi keriting atau fungsi set() dapat digunakan untuk membuat set. Catatan: untuk membuat set kosong Anda harus menggunakan set(), bukan {}; yang terakhir membuat kamus kosong, struktur data yang kita bahas di bagian berikutnya.
 
-## 5.7. Lebih lanjut tentang Kondisi
 
-Dalam kondisi yang digunakan dalam pernyataan `while` dan `if` dapat berisi operator apapun, bukan hanya perbandingan. Perbandingan bisa dibuat berantai, perbandingan juga dapat digabungkan menggunakan operator Boolean `and` dan `or` dan hasil perbandingan (atau ekspresi Boolean lainnya) dapat dinegasikan dengan `not`. Operator Boolean `and` dan `or` disebut sebagai operator *short-circuit*, argumen mereka dievaluasi dari kiri ke kanan, dan evaluasi berhenti setelah hasilnya ditentukan.
+## Dictionaries
+Tipe data lain yang berguna yang dibangun ke dalam Python adalah kamus (lihat Tipe Pemetaan - dict). Kamus kadang-kadang ditemukan dalam bahasa lain sebagai "kenangan asosiatif" atau "array asosiatif". Tidak seperti urutan, yang diindeks oleh berbagai angka, kamus diindeks oleh kunci, yang dapat berupa jenis yang tidak berubah; string dan angka selalu bisa menjadi kunci. Tuples dapat digunakan sebagai kunci jika hanya berisi string, angka, atau tuple; jika tuple berisi objek yang dapat diubah baik secara langsung maupun tidak langsung, itu tidak dapat digunakan sebagai kunci. Anda tidak dapat menggunakan daftar sebagai kunci, karena daftar dapat dimodifikasi di tempat menggunakan penetapan indeks, irisan tugas, atau metode seperti append() dan extend().
+Operasi utama pada kamus adalah menyimpan nilai dengan beberapa kunci dan mengekstraksi nilai yang diberikan kunci. Dimungkinkan juga untuk menghapus pasangan key:value dengan del. Jika Anda menyimpan menggunakan kunci yang sudah digunakan, nilai lama yang terkait dengan kunci tersebut akan dilupakan. Ini adalah kesalahan untuk mengekstrak nilai menggunakan kunci yang tidak ada.
+Melakukan list(d) pada kamus mengembalikan daftar semua kunci yang digunakan dalam kamus, dalam urutan penyisipan (jika Anda ingin diurutkan, cukup gunakan sorted(d) sebagai gantinya). Untuk memeriksa apakah satu kunci ada di kamus, gunakan kata kunci in.
 
-## 5.8. Membandingkan Urutan Sequences dan Jenis Lainnya.
 
-Objek urutan *sequence* biasanya dapat dibandingkan dengan objek lain dengan jenis urutan yang sama. Perbandingan menggunakan pengurutan *lexicographical* pertama 2 item pertama dibandingkan, dan jika mereka berbeda ini menentukan hasil perbandingan, dan jika mereka sama, 2 item berikutnya dibandingkan, dan seterusnya, sampai urutan dimana pun habis. 
+## Teknik Looping
+Saat looping melalui kamus, kunci dan nilai yang sesuai dapat diambil pada saat yang sama menggunakan metode items()). Saat looping melalui urutan, indeks posisi dan nilai yang sesuai dapat diambil pada saat yang sama menggunakan fungsi enumerate()). Untuk loop lebih dari dua atau lebih urutan pada saat yang sama, entri dapat dipasangkan dengan zip()). Untuk loop atas urutan secara terbalik, pertama-tama tentukan urutan dalam arah maju dan kemudian memanggil fungsi reversed()). untuk memutar urutan dalam urutan yang diurutkan, gunakan fungsi sorted() yang mengembalikan daftar yang diurutkan baru sambil membiarkan sumber tidak berubah. Menggunakan set() pada urutan menghilangkan elemen duplikat. Penggunaan sorted() dalam kombinasi dengan set() di atas urutan adalah cara idiomatik untuk melingkari elemen unik dari urutan dalam urutan yang diurutkan.
+
+
+## Lebih lanjut tentang Kondisi
+Kondisi yang digunakan dalam while dan if pernyataan dapat berisi operator apa pun, bukan hanya perbandingan.
+
+Operator perbandingan in dan not in adalah tes keanggotaan yang menentukan apakah suatu nilai ada di (atau tidak dalam) kontainer. Operator is dan is not membandingkan apakah dua objek benar-benar objek yang sama. Semua operator perbandingan memiliki prioritas yang sama, yang lebih rendah dari semua operator numerik.
+
+Perbandingan dapat dirantai. Misalnya, a < b == c apakah a kurang dari b dan apalagi b sama dengan c.
+
+Perbandingan dapat digabungkan menggunakan operator Boolean and dan or, dan hasil perbandingan (atau ekspresi Boolean lainnya) dapat dinegasikan dengan not. Ini memiliki prioritas yang lebih rendah daripada operator perbandingan; di antara mereka, not memiliki prioritas tertinggi dan or terendah, sehingga A and not B or C setara dengan (A and (not B)) or C. Seperti biasa, tanda kurung dapat digunakan untuk mengekspresikan komposisi yang diinginkan.
+
+Operator Boolean and dan or disebut operator sirkuit pendek: argumen mereka dievaluasi dari kiri ke kanan, dan evaluasi berhenti segera setelah hasilnya ditentukan. Misalnya, jika A dan C benar tetapi B salah, A and B and C tidak mengevaluasi ekspresi C. Ketika digunakan sebagai nilai umum dan bukan sebagai Boolean, nilai pengembalian operator korsleting adalah argumen terakhir yang dievaluasi. Dimungkinkan untuk menetapkan hasil perbandingan atau ekspresi Boolean lainnya ke variabel.
+
+
+## Membandingkan Urutan dan Jenis Lainnya
+Objek urutan biasanya dapat dibandingkan dengan objek lain dengan jenis urutan yang sama. Perbandingan menggunakan urutan leksografis: pertama dua item pertama dibandingkan, dan jika berbeda ini menentukan hasil perbandingan; jika sama, dua item berikutnya dibandingkan, dan seterusnya, sampai kedua urutan habis. Jika dua item yang akan dibandingkan adalah urutan sendiri dari jenis yang sama, perbandingan leksikografis dilakukan secara rekursif. Jika semua item dari dua urutan dibandingkan sama, urutan dianggap sama. Jika satu urutan adalah sub-urutan awal dari yang lain, urutan yang lebih pendek adalah yang lebih kecil (lebih rendah). Urutan leksiografis untuk string menggunakan nomor titik kode Unicode untuk memesan karakter individu.
+membandingkan objek dari berbagai jenis dengan < atau > adalah legal asalkan objek memiliki metode perbandingan yang sesuai. Misalnya, tipe numerik campuran dibandingkan sesuai dengan nilai numeriknya, jadi 0 sama dengan 0,0, dll. Jika tidak, alih-alih memberikan pemesanan sewenang-wenang, penerjemah akan menaikkan pengecualian TypeError.
